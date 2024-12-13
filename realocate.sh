@@ -15,9 +15,21 @@ if [ ! -e "$SOURCE_PATH" ]; then
     exit 1
 fi
 
+if [ -e "$DESTINATION_PATH" ]; then
+    read -p "Destination path '$DESTINATION_PATH' already exists and directories will be merged. Do you want to proceed anyway? (y/n): " proceed
+    if [ "$proceed" != "y" ]; then
+        echo "Operation cancelled."
+        exit 1
+    fi
+fi
 # Move the source to the destination
 echo "Moving '$SOURCE_PATH' to '$DESTINATION_PATH'... This might take a while if the file is large."
-mv "$SOURCE_PATH" "$DESTINATION_PATH"
+# mv "$SOURCE_PATH" "$DESTINATION_PATH"
+rsync -a --progress "$SOURCE_PATH" "$DESTINATION_PATH"
+echo "Done moving '$SOURCE_PATH' to '$DESTINATION_PATH'."
+echo "Removing the original source path '$SOURCE_PATH'..."
+rm -fr "$SOURCE_PATH"
+echo "Done removing the original source path."
 
 # Create a symbolic link at the original source path pointing to the new destination
 echo "Creating a symlink at '$SOURCE_PATH' pointing to '$DESTINATION_PATH'..."

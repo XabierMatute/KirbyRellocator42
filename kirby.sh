@@ -25,4 +25,12 @@ if [ "$answer" == "y" ]; then
     KirbyRelocator42/realocate.sh "$dir_name" $sgoinfre_dir
 else
     echo "Up2U!"
+    exit 0
 fi
+
+if [ $? -eq 0 ]; then
+    echo "Success :)!"
+else
+    echo "Failed :(!"
+fi
+# End of kirby.sh
