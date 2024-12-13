@@ -29,7 +29,7 @@ fi
 echo "Moving '$SOURCE_PATH' to '$DESTINATION_PATH'... This might take a while if the file is large."
 # mv "$SOURCE_PATH" "$DESTINATION_PATH"
 echo -e "${blue}..."
-rsync -a --progress "$SOURCE_PATH" "$DESTINATION_PATH"
+rsync -a --progress "$SOURCE_PATH"/ "$DESTINATION_PATH"
 echo -e "${reset}"
 echo "Done moving '$SOURCE_PATH' to '$DESTINATION_PATH'."
 echo "Removing the original source path '$SOURCE_PATH'..."

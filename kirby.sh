@@ -35,8 +35,8 @@ cd $HOME
 # Find the heaviest directory in the home directory
 heaviest_dir=$(du -sh .[^.]* * 2>/dev/null | sort -rh | head -n 1)
 
-dir_name=$(echo $heaviest_dir | awk '{print $2}')/
-dir_size=$(echo $heaviest_dir | awk '{print $1}')/
+dir_name=$(echo $heaviest_dir | awk '{print $2}')
+dir_size=$(echo $heaviest_dir | awk '{print $1}')
 
 # Print the heaviest directory and its size
 echo "The heaviest directory in $HOME is:"
