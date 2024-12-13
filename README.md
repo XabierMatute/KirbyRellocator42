@@ -50,4 +50,4 @@ This script reverses the operation performed by `relocate.sh`. It removes the sy
 ./restore.sh <source_path> <destination_path>
 ```
 
-> ⚠️ **Warning**: Use this script at your own risk. I am not responsible for any data loss or damage that may occur.
+>  **Warning**: Use this script at your own risk. I am not responsible for any data loss or damage that may occur.
