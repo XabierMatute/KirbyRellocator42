@@ -6,9 +6,9 @@ KirbyMover42 is a script that moves the heaviest directories from `/home` to `sg
 
 Open your terminal and run the following command:
 
-    ```bash
-    git clone https://github.com/XabierMatute/KirbyRelocator42.git && cd KirbyRelocator42 && chmod +x installer.sh; /bin/sh installer.sh
-    ```
+```bash
+git clone https://github.com/XabierMatute/KirbyRelocator42.git && cd KirbyRelocator42 && chmod +x installer.sh; /bin/sh installer.sh
+```
 
 ## How It Works
 
