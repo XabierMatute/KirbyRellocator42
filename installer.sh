@@ -21,4 +21,4 @@ if ! grep -q 'export PATH=$HOME/bin:$PATH' ~/.zshrc; then
     echo 'export PATH=$HOME/bin:$PATH' >> ~/.zshrc
 fi
 
-echo -e "\nInstallation complete. Please restart your terminal to use 'kirby42' and 'kirby_realocate'.\033[0m"
+echo -e "\nInstallation complete.\033[0m"
