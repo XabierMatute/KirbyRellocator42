@@ -1,21 +1,24 @@
 #!/bin/sh
 # installer
 
-chmod +x kirby.sh
-chmod +x realocate.sh
+# Ensure ~/bin directory exists
+mkdir -p ~/bin
 
-script_path=$(pwd)/kirby.sh
+# Copy scripts to ~/bin
+cp kirby.sh ~/bin/kirby42
+cp realocate.sh ~/bin/kirby_realocate
 
-kalias="alias kirby42='/bin/bash $script_path'"
+# Make scripts executable
+chmod +x ~/bin/kirby42
+chmod +x ~/bin/kirby_realocate
 
-echo $kalias >> ~/.bashrc
-echo $kalias >> ~/.zshrc
+# Ensure ~/bin is in the PATH
+if ! grep -q 'export PATH=$HOME/bin:$PATH' ~/.bashrc; then
+    echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
+fi
 
-script_path=$(pwd)/realocate.sh
+if ! grep -q 'export PATH=$HOME/bin:$PATH' ~/.zshrc; then
+    echo 'export PATH=$HOME/bin:$PATH' >> ~/.zshrc
+fi
 
-kalias="alias kirby_realocate='/bin/bash $script_path'"
-
-echo $kalias >> ~/.bashrc
-echo $kalias >> ~/.zshrc
-
-echo -e "\nTo use the 'kirby42' , Please restart your terminal then run 'kirby42'\033[0m"
+echo -e "\nInstallation complete. Please restart your terminal to use 'kirby42' and 'kirby_realocate'.\033[0m"
