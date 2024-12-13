@@ -1,5 +1,34 @@
 #!/bin/bash
 
+ascii_art=$(cat << "EOF"
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠶⠦⡄⠀⠀⠀⠀⠀⠀⡴⠀⠀⠀
+⠀⢀⣀⠀⠀⠀⣀⠤⠖⠒⠋⡉⠙⢲⣺⢅⡀⠀⠹⡀⠀⠀⠀⢀⡜⠁⠀⠀⠀
+⣼⠉⠀⠉⠓⠏⠁⠀⠀⠀⠀⢯⣧⠈⢿⡆⠈⠓⢴⠇⠀⠀⣠⠊⠀⠀⠀⡀⠀
+⢧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠀⡀⠄⠠⢀⠈⢣⡀⠀⠁⠀⢀⡤⠊⠀⠀
+⠈⢧⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⢀⠎⠀⠀⠀⠘⡇⠀⢧⠀⠐⠊⠁⠀⠀⠀⠀
+⠀⢸⠳⣄⠀⠀⠀⠀⠀⠀⠀⠈⢺⠀⠀⠀⠀⠀⡇⠀⢸⠀⠀⠀⠀⢀⣀⣀⡀
+⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣆⠠⠄⢀⡀⢇⠀⢸⡀⠀⡀⠀⠀⠀⠀⠀
+⠀⠘⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢃⠀⠀⠀⠈⠙⠆⡼⠛⢦⡀⠑⠢⣄⠀⠀
+⠀⠀⠹⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⡌⠢⣀⠀⢀⡴⡰⠁⠀⢀⡇⠀⠀⠈⠑⠀
+⠀⠀⠀⢸⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡴⠗⠒⠚⠉⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⡜⠀⠉⠢⢄⣀⠀⠀⠀⠀⠀⣀⡤⠖⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⡇⠀⠀⠀⠀⣨⠟⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀KirbyRelocator42 by @xmatute-
+⠀⠀⠀⠙⠂⠴⠒⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+EOF
+)
+
+# Define the color code for pink (magenta)
+pink='\033[1;35m'
+red='\033[0;31m'
+green='\033[0;32m'
+yellow='\033[0;33m'
+orange='\033[38;5;214m'
+reset='\033[0m'
+
+# Print the ASCII art in pink
+echo -e "${pink}${ascii_art}${reset}"
+echo
+
 # Navigate to the home directory
 cd $HOME
 
@@ -11,7 +40,7 @@ dir_size=$(echo $heaviest_dir | awk '{print $1}')
 
 # Print the heaviest directory and its size
 echo "The heaviest directory in $HOME is:"
-echo "$dir_name ($dir_size)"
+echo -e "${orange}${dir_name} (${dir_size})${reset}"
 
 sgoinfre_dir="/sgoinfre/students/$USER/$dir_name"
 
@@ -24,13 +53,15 @@ if [ "$answer" == "y" ]; then
     echo "Relocating $dir_name to $sgoinfre_dir..."
     kirby_realocate "$dir_name" "$sgoinfre_dir"
 else
-    echo "Up2U!"
+    echo -e "${yellow}Up2U :I${reset}"
     exit 0
 fi
 
 if [ $? -eq 0 ]; then
-    echo "Success :)!"
+    echo -e "${green}Success :)${reset}"
+    exit 0
 else
-    echo "Failed :(!"
+    echo -e "${red}Failed :(${reset}"
+    exit 1
 fi
 # End of kirby.sh
