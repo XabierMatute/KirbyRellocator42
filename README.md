@@ -28,19 +28,19 @@ This is the main script that identifies the heaviest directory and prompts the u
 ./kirby.sh
 ```
 
-### realocate.sh
+### reallocate.sh
 
 This script moves a directory from a source path to a destination path, deletes the original directory, and creates a symbolic link in its place.
 
 #### Usage
 
 ```bash
-./realocate.sh <source_path> <destination_path>
+./reallocate.sh <source_path> <destination_path>
 ```
 
 ### deallocate.sh
 
-This script reverses the operation performed by `realocate.sh`. It removes the symbolic link at the source path, moves the content back from the destination path to the source path, and deletes the destination path.
+This script reverses the operation performed by `reallocate.sh`. It removes the symbolic link at the source path, moves the content back from the destination path to the source path, and deletes the destination path.
 
 #### Usage
 

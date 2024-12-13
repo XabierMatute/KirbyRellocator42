@@ -6,12 +6,12 @@ mkdir -p ~/bin
 
 # Copy scripts to ~/bin
 cp kirby.sh ~/bin/kirby42
-cp realocate.sh ~/bin/kirby_realocate
+cp reallocate.sh ~/bin/kirby_reallocate
 cp deallocate.sh ~/bin/kirby_deallocate
 
 # Make scripts executable
 chmod +x ~/bin/kirby42
-chmod +x ~/bin/kirby_realocate
+chmod +x ~/bin/kirby_reallocate
 chmod +x ~/bin/kirby_deallocate
 
 # Ensure ~/bin is in the PATH
