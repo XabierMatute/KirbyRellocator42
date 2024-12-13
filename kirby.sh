@@ -42,7 +42,7 @@ dir_size=$(echo $heaviest_dir | awk '{print $1}')
 echo "The heaviest directory in $HOME is:"
 echo -e "${orange}${dir_name} (${dir_size})${reset}"
 
-sgoinfre_dir="/sgoinfre/students/$USER"
+sgoinfre_dir="/sgoinfre/students/$USER/$dir_name"
 
 # Ask the user if they want to relocate the heaviest directory
 read -p "Do you want to relocate this directory to $sgoinfre_dir? (y/n): " answer
