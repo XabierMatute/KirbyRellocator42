@@ -6,13 +6,13 @@ mkdir -p ~/bin
 
 # Copy scripts to ~/bin
 cp kirby.sh ~/bin/kirby42
-cp reallocate.sh ~/bin/kirby_reallocate
-cp deallocate.sh ~/bin/kirby_deallocate
+cp relocate.sh ~/bin/kirby_relocate
+cp restore.sh ~/bin/kirby_restore
 
 # Make scripts executable
 chmod +x ~/bin/kirby42
-chmod +x ~/bin/kirby_reallocate
-chmod +x ~/bin/kirby_deallocate
+chmod +x ~/bin/kirby_relocate
+chmod +x ~/bin/kirby_restore
 
 # Ensure ~/bin is in the PATH
 if ! grep -q 'export PATH=$HOME/bin:$PATH' ~/.bashrc; then

@@ -50,11 +50,11 @@ while true; do
     # Ask the user if they want to relocate the heaviest directory
     read -p "Do you want to relocate this directory to $sgoinfre_dir? (y/n): " answer
 
-    # If the user answers 'y', call the reallocate.sh script
+    # If the user answers 'y', call the relocate.sh script
     if [ "$answer" == "y" ]; then
         # Extract the directory name from the heaviest_dir variable
         echo "Relocating $dir_name to $sgoinfre_dir..."
-        kirby_reallocate "$dir_name" "$sgoinfre_dir"
+        kirby_relocate "$dir_name" "$sgoinfre_dir"
         if [ $? -eq 0 ]; then
             echo -e "${green}Success :)${reset}"
             exit 0
