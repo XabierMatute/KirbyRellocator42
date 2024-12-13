@@ -7,6 +7,7 @@ chmod +x realocate.sh
 script_path=$(pwd)/kirby.sh
 
 kalias="alias kirby42='bin/bash $script_path'"
+echo $kalias
 
 $kalias >> ~/.$(basename "$SHELL")rc
 
