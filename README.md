@@ -3,7 +3,6 @@
 KirbyMover42 is a script that moves the heaviest directories from `/home` to `sgoinfre` to free up local space. It replaces the original directories with symbolic links, ensuring files remain accessible while optimizing storage. Perfect for managing large files and saving disk space.
 
 > **Note**: This script is designed to be used on the Ubuntu computers at my campus (Urduliz42) to prevent issues with limited local storage space.
-> **Warning**: Use this script at your own risk. I am not responsible for any data loss or damage that may occur.
 
 ## Installation
 
@@ -50,3 +49,5 @@ This script reverses the operation performed by `reallocate.sh`. It removes the 
 ```bash
 ./deallocate.sh <source_path> <destination_path>
 ```
+
+> **Warning**: Use this script at your own risk. I am not responsible for any data loss or damage that may occur.
