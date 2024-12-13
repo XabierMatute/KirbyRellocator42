@@ -32,36 +32,46 @@ echo
 # Navigate to the home directory
 cd $HOME
 
-# Find the heaviest directory in the home directory
-heaviest_dir=$(du -sh .[^.]* * 2>/dev/null | sort -rh | head -n 1)
+counter=1
 
-dir_name=$(echo $heaviest_dir | awk '{print $2}')
-dir_size=$(echo $heaviest_dir | awk '{print $1}')
+while true; do
+    # Find the heaviest directory in the home directory
+    heaviest_dir=$(du -sh .[^.]* * 2>/dev/null | sort -rh | head -n $counter | tail -n 1)
 
-# Print the heaviest directory and its size
-echo "The heaviest directory in $HOME is:"
-echo -e "${orange}${dir_name} (${dir_size})${reset}"
+    dir_name=$(echo $heaviest_dir | awk '{print $2}')
+    dir_size=$(echo $heaviest_dir | awk '{print $1}')
 
-sgoinfre_dir="/sgoinfre/students/$USER/$dir_name"
+    # Print the heaviest directory and its size
+    echo "The heaviest directory in $HOME is:"
+    echo -e "${orange}${dir_name} (${dir_size})${reset}"
 
-# Ask the user if they want to relocate the heaviest directory
-read -p "Do you want to relocate this directory to $sgoinfre_dir? (y/n): " answer
+    sgoinfre_dir="/sgoinfre/students/$USER/$dir_name"
 
-# If the user answers 'y', call the realocate.sh script
-if [ "$answer" == "y" ]; then
-    # Extract the directory name from the heaviest_dir variable
-    echo "Relocating $dir_name to $sgoinfre_dir..."
-    kirby_realocate "$dir_name" "$sgoinfre_dir"
-else
-    echo -e "${yellow}Up2U :I${reset}"
-    exit 0
-fi
+    # Ask the user if they want to relocate the heaviest directory
+    read -p "Do you want to relocate this directory to $sgoinfre_dir? (y/n): " answer
 
-if [ $? -eq 0 ]; then
-    echo -e "${green}Success :)${reset}"
-    exit 0
-else
-    echo -e "${red}Failed :(${reset}"
-    exit 1
-fi
+    # If the user answers 'y', call the realocate.sh script
+    if [ "$answer" == "y" ]; then
+        # Extract the directory name from the heaviest_dir variable
+        echo "Relocating $dir_name to $sgoinfre_dir..."
+        kirby_realocate "$dir_name" "$sgoinfre_dir"
+        if [ $? -eq 0 ]; then
+            echo -e "${green}Success :)${reset}"
+            exit 0
+        else
+            echo -e "${red}Failed :(${reset}"
+            exit 1
+        fi
+
+    else
+        read -p "Do you want to see the next heaviest directory? (y/n): " answer
+        if [ "$answer" == "y" ]; then
+            counter=$((counter + 1))
+        else
+            echo -e "${yellow}Up2U :I${reset}"
+            exit 0
+        fi
+    fi
+done
+
 # End of kirby.sh
