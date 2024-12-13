@@ -22,7 +22,7 @@ read -p "Do you want to relocate this directory to $sgoinfre_dir? (y/n): " answe
 if [ "$answer" == "y" ]; then
     # Extract the directory name from the heaviest_dir variable
     echo "Relocating $dir_name to $sgoinfre_dir..."
-    KirbyRelocator42/realocate.sh "$dir_name" $sgoinfre_dir
+    kirby_realocate "$dir_name" $sgoinfre_dir
 else
     echo "Up2U!"
     exit 0
