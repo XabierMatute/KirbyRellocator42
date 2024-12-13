@@ -35,14 +35,14 @@ cd $HOME
 # Find the heaviest directory in the home directory
 heaviest_dir=$(du -sh .[^.]* * 2>/dev/null | sort -rh | head -n 1)
 
-dir_name=$(echo $heaviest_dir | awk '{print $2}')
+dir_name=$(echo $heaviest_dir | awk '{print $2}')/
 dir_size=$(echo $heaviest_dir | awk '{print $1}')
 
 # Print the heaviest directory and its size
 echo "The heaviest directory in $HOME is:"
 echo -e "${orange}${dir_name} (${dir_size})${reset}"
 
-sgoinfre_dir="/sgoinfre/students/$USER/$dir_name"
+sgoinfre_dir="/sgoinfre/students/$USER"
 
 # Ask the user if they want to relocate the heaviest directory
 read -p "Do you want to relocate this directory to $sgoinfre_dir? (y/n): " answer
