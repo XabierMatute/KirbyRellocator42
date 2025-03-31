@@ -18,6 +18,8 @@ git clone https://github.com/XabierMatute/KirbyRelocator42.git && cd KirbyReloca
 2. **Prompt User for Action**: It prompts the user to confirm if they want to relocate the identified directory.
 3. **Relocate Directory**: If the user agrees, the script moves the directory to `sgoinfre` and creates a symbolic link from the original location to the new location.
 
+For example, if `/home/user/.heavy` is the heaviest directory, it will be moved to `/sgoinfre/user/.heavy`, and a symbolic link will be created at `/home/user/.heavy`.
+
 ## Scripts
 
 ### kirby.sh
